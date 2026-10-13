@@ -2,6 +2,9 @@
 
 A desktop AI agent that lives on top of an Obsidian "second brain" vault. Built with **Electron** and the **Claude Agent SDK**, it gives a long-running Claude session a native window, a system-tray presence and a live view of the vault it works in.
 
+![Noyan Desktop](docs/screenshot.png)
+<sub>Demo vault and demo bot data.</sub>
+
 > UI language: Turkish. Code comments: Turkish.
 
 ## Features
