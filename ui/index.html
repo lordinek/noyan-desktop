@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; connect-src https://api.binance.com">
+  <title>Noyan</title>
+  <link rel="stylesheet" href="../node_modules/@highlightjs/cdn-assets/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="titlebar">
+    <div class="tb-left">
+      <button class="icon-btn" id="toggleSide" title="Sol panel (Ctrl+B)">☰</button>
+      <div class="orb sm" id="orbSm"><span></span></div>
+      <div class="brand">Noyan <small id="sessTitle">yeni oturum</small></div>
+    </div>
+    <div class="tb-mid">
+      <select id="modelSel" title="Model"><option value="">Model…</option></select>
+      <select id="modeSel" title="İzin modu">
+        <option value="auto">İzin: otomatik</option>
+        <option value="acceptEdits">İzin: düzenlemeler serbest</option>
+        <option value="default">İzin: her şeyi sor</option>
+        <option value="plan">İzin: plan modu</option>
+      </select>
+    </div>
+    <div class="tb-right">
+      <button class="pill" id="skillsBtn" title="Skiller (Ctrl+K)">✦ Skiller</button>
+      <button class="icon-btn" id="vault" title="Vault klasörünü aç">🗄</button>
+      <button class="icon-btn" id="toggleRight" title="Sağ panel (Ctrl+J)">◧</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="side glass" id="side">
+      <button class="new-btn" id="new">＋ Yeni oturum <kbd>Ctrl N</kbd></button>
+      <div class="tabs" id="sideTabs">
+        <button data-tab="sessions" class="on">Oturumlar</button>
+        <button data-tab="threads">Threads</button>
+        <button data-tab="projects">Projeler</button>
+      </div>
+      <input class="side-search" id="sideSearch" type="search" placeholder="Filtrele…">
+      <div class="side-list" id="sideList"></div>
+    </aside>
+
+    <main class="chat">
+      <div class="log" id="log">
+        <div class="empty" id="empty">
+          <div class="orb lg" id="orbLg"><span></span></div>
+          <h1>Selam.</h1>
+          <p>Vault yüklü. Ne üzerinde çalışıyoruz?</p>
+          <div class="hints"><kbd>/</kbd> komutlar <kbd>Ctrl K</kbd> skiller <kbd>Ctrl Alt N</kbd> her yerden aç</div>
+        </div>
+      </div>
+
+      <div class="composer-wrap">
+        <div class="palette glass" id="palette" hidden></div>
+        <div class="composer glass" id="composer">
+          <div class="attachments" id="attachments"></div>
+          <div class="row">
+            <textarea id="input" rows="1" placeholder="Noyan'a yaz…  /komut · dosya sürükle · görsel yapıştır" autofocus></textarea>
+            <button class="send" id="go" title="Gönder (Enter)">➤</button>
+            <button class="send stop" id="stop" title="Durdur (Esc)" hidden>■</button>
+          </div>
+        </div>
+        <div class="statusline"><span id="meta">hazır</span><span id="usage"></span></div>
+      </div>
+      <div class="dropzone" id="dropzone" hidden><div>Dosyayı bırak</div></div>
+    </main>
+
+    <aside class="right glass" id="right">
+      <section>
+        <h3>Piyasa <small id="tickAgo"></small></h3>
+        <div id="ticker" class="ticker"></div>
+      </section>
+      <section>
+        <h3>Botlar <small id="botsAgo"></small><button class="mini" id="botsRefresh" title="Yenile">↻</button></h3>
+        <div id="portfolio" class="portfolio"></div>
+        <div id="bots" class="bots"></div>
+      </section>
+    </aside>
+  </div>
+
+  <div id="skills" class="overlay" hidden>
+    <div class="sk-panel">
+      <div class="sk-head">
+        <div>
+          <h2>Skiller</h2>
+          <p id="skCount">yükleniyor…</p>
+        </div>
+        <input id="skSearch" type="search" placeholder="Ara…  (Esc kapat)" autocomplete="off">
+      </div>
+      <div id="skCats" class="sk-cats"></div>
+      <div id="skGrid" class="sk-grid"></div>
+    </div>
+  </div>
+
+  <script src="../node_modules/marked/lib/marked.umd.js"></script>
+  <script src="../node_modules/@highlightjs/cdn-assets/highlight.min.js"></script>
+  <script src="util.js"></script>
+  <script src="app.js"></script>
+  <script src="skills.js"></script>
+  <script src="side.js"></script>
+  <script src="panel.js"></script>
+</body>
+</html>
